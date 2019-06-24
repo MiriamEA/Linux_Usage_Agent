@@ -4,7 +4,7 @@ The Host Agent is an internal programm that keeps track of hardware specificatio
 It allows the infrastructure team to monitor the resource usage (CPU, memory, ...).
 
 ## Architecture
-
+![Cluster](https://github.com/MiriamEA/Linux_Usage_Agent/blob/master/Cluster.jpg)
 ### Tables
 #### host_info table
 The host_info table stores the hardware information of all servers in the cluster. It stores the name, the size of the L2 cache in kB, the total memory in kB, and the time the server was added to the database. It also stores the following cpu information: the number of CPUs, the architecture, the model, and the MHz. Each server is identified by a unique id.
