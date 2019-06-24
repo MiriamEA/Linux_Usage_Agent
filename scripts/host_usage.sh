@@ -21,7 +21,7 @@ function getVmstatHelper {
 }
 
 function getHostId {
-	host_id=$(cat host_id.txt)
+	host_id=$(cat /home/centos/dev/jrvs/bootcamp/host_agent/scripts/host_id.txt)
 }
 
 function getMemFree {
