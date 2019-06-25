@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 The Host Agent is an internal programm that keeps track of hardware specifications and resource usage of all serves in the cluster. 
-It allows the infrastructure team to monitor the resource usage (CPU, memory, ...).
+It allows the infrastructure team to monitor the resource usage (CPU, memory, ...). This information can be used to improve the cluster and plan for the future.
 
 ## 2. Architecture
 ![Cluster](https://github.com/MiriamEA/Linux_Usage_Agent/blob/master/Cluster.jpg)
@@ -18,9 +18,9 @@ The script init.sql is used to create the the database tables. The script host_i
 
 ## 3. Usage
 ### 3.1. Initiate database and tables
-The database has to be created by hand (logging on the psql and running the create database command. Once the database is created the script init.sql can be run to create the two tables.
+The database has to be created with the command ```psql -h psql_host -U psql_user -c "CREATE DATABASE db_name"```. Once the database is created the script init.sql can be run to create the two tables with the following command: ```psql -h psql_host -U psql_user  db_name -f init.sql ```.
 ### 3.2. host_info.sh usage
-The script host_info.sh needs to be run once on every server it can be monitored. When this script is run it expects five arguments to be passed: psql host, psql port, database name, psql user, and psql password.
+The script host_info.sh needs to be run once on every serer it can be monitored. When this script is run it expects five arguments to be passed: psql host, psql port, database name, psql user, and psql password.
 It is run with the following command: ```bash host_info.sh psql_host psql_port, db_name, psql_user psql_password ```.
 ### 3.3. host_usage.sh usage
 The script host_usag.sh needs to be run whenever you want to get the current information on the resource usage.. When this script is run it expects five arguments to be passed: psql host, psql port, database name, psql user, and psql password.
@@ -30,3 +30,5 @@ crontab can be used to automate the executing of the script host_usage in regula
 ```* * * * * bash path/host_usage.sh psql_host psql_port db_name psql_user psql_password > /tmp/host_usage.log```
 
 ## 4. Improvements
+* keep track of hardware changes
+* break usage down into processes using resources for better tracking
